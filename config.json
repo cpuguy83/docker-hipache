@@ -6,7 +6,6 @@
         "maxSockets": 100,
         "deadBackendTTL": 30
     },
-    redisHost: "hipache-redis.redis.prod.envu.io",
-    redisPort: 6379
+    "drvier": "redis://hipache-redis.prod.envu.io/0"
 }
 
