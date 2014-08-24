@@ -6,6 +6,6 @@
         "maxSockets": 100,
         "deadBackendTTL": 30
     },
-    "drvier": "redis://db/0"
+    "driver": "redis://db/0"
 }
 
