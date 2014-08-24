@@ -1,14 +1,11 @@
-FROM cpuguy83/ubuntu
-RUN apt-get update -qq && apt-get install -y python-software-properties g++ make && apt-add-repository ppa:chris-lea/node.js
-RUN apt-get update -qq && apt-get install -y nodejs -qq
-RUN npm install hipache -g
+FROM debian:jessie
 
-RUN mkdir /etc/hipache
-ADD config.json /etc/hipache/
-
+RUN apt-get update && apt-get install -y nodejs npm --no-install-recommends git
+RUN git clone https://github.com/hipache/hipache.git && cd hipache && git checkout 0.3.1
+RUN npm install -g ./hipache --production
+ADD config.json /etc/hipache/config.json
 VOLUME /etc/hipache
-VOLUME /var/log
 
 EXPOSE 80 443
 
-ENTRYPOINT ["/usr/bin/hipache", "-c", "/etc/hipache/config.json"]
+CMD ["/usr/local/bin/hipache", "-c", "/etc/hipache/config.json"]
