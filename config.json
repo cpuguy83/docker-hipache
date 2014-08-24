@@ -1,11 +1,11 @@
 {
     "server": {
-        "accessLog": "/var/log/hipache_access.log",
+        "accessLog": "/dev/stdout",
         "port": 80,
         "workers": 5,
         "maxSockets": 100,
         "deadBackendTTL": 30
     },
-    "drvier": "redis://hipache-redis.prod.envu.io/0"
+    "drvier": "redis://db/0"
 }
 
